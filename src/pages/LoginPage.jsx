@@ -30,10 +30,9 @@ function LoginPage({ onLogin }) {
         console.log(token);
       }
 
-    } catch {
+    } catch (error) {
       alert("Invalid username or password");
-      console.log(token);
-
+      console.error("Login failed:", error);
     }
   }
 
