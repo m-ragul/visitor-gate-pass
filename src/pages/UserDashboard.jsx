@@ -196,8 +196,8 @@ function UserDashboard() {
               gp.status === "APPROVED"
                 ? "#2e7d32"
                 : gp.status === "REJECTED"
-                ? "#c62828"
-                : "#ed6c02";
+                  ? "#c62828"
+                  : "#ed6c02";
 
             return (
               <div
@@ -277,9 +277,55 @@ function UserDashboard() {
                         display: "flex",
                         justifyContent: "center",
                         marginTop: "10px",
+                        flexDirection: "column",
+                        alignItems: "center",
                       }}
                     >
                       <QRCode value={gp.qrData} size={140} />
+
+                      {/* 🔑 OTP SECTION */}
+                      <div style={{ marginTop: "15px", textAlign: "center" }}>
+                        {gp.currentOtp ? (
+                          <div
+                            style={{
+                              backgroundColor: "#e8f5e9",
+                              padding: "10px",
+                              borderRadius: "8px",
+                              border: "1px solid #2e7d32",
+                            }}
+                          >
+                            <span style={{ fontSize: "14px", color: "#2e7d32" }}>
+                              Entry OTP:
+                            </span>
+                            <br />
+                            <strong style={{ fontSize: "24px", letterSpacing: "4px" }}>
+                              {gp.currentOtp}
+                            </strong>
+                            <div style={{ fontSize: "12px", color: "#666", marginTop: "5px" }}>
+                              Valid for 5 mins
+                            </div>
+                          </div>
+                        ) : (
+                          <div style={{ marginTop: "10px" }}>
+                            <p style={{ fontSize: "13px", color: "#666", margin: "0 0 5px 0" }}>
+                              Scan to generate OTP
+                            </p>
+                            <button
+                              onClick={fetchGatePasses}
+                              style={{
+                                padding: "5px 10px",
+                                fontSize: "12px",
+                                cursor: "pointer",
+                                backgroundColor: "#f0f0f0",
+                                border: "1px solid #ccc",
+                                borderRadius: "4px"
+                              }}
+                            >
+                              🔄 Refresh Status
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 )}
