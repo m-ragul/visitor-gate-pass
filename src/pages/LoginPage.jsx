@@ -19,15 +19,21 @@ function LoginPage({ onLogin }) {
 
       const token = res.data;
       localStorage.setItem("token", token);
+      console.log(token);
       onLogin(token);
 
       const role = getUserRole();
       if (role === "ADMIN") navigate("/admin");
       else if (role === "GUARD") navigate("/guard");
-      else navigate("/user");
+      else {
+        navigate("/user");
+        console.log(token);
+      }
 
     } catch {
       alert("Invalid username or password");
+      console.log(token);
+
     }
   }
 
