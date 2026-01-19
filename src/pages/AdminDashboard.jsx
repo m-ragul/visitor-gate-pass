@@ -79,7 +79,7 @@ function AdminDashboard() {
                     <h3>Today's Visitors</h3>
                     <p style={{ fontSize: "2.5rem", fontWeight: "bold", margin: "0.5rem 0" }}>{stats.totalVisitorsToday}</p>
                 </div>
-                <div className="card" style={{ textAlign: "center", background: "#e2e6ea", border: "1px solid #ddd" }}>
+                <div className="card" style={{ textAlign: "center", background: "#f8f9fa", border: "1px solid #ddd" }}>
                     <h3>Currently Inside</h3>
                     <p style={{ fontSize: "2.5rem", fontWeight: "bold", margin: "0.5rem 0", color: "#28a745" }}>{stats.currentVisitorsInside}</p>
                 </div>
